@@ -196,7 +196,7 @@ class expenseTracker extends Component {
                 </Modal>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 530 }}>
-                        <div>
+                        <div style="background-color: lightgrey;">
                             <span>Balance</span><br/>
                             <span><bold>{this.state.balance}RS</bold></span><br/>
                             <span>Income</span><span>{this.state.totalIncome}RS</span><span>Expense</span><span>{this.state.totalExpense}</span>
