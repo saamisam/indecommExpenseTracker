@@ -18,12 +18,16 @@ class expenseTracker extends Component {
     }
 
     componentDidMount(){
-        // this.setState({
-        //     transactions: JSON.parse(localStorage.getItem('transactions')),
-        //     balance:localStorage.getItem('balance'),
-        //     totalIncome:localStorage.getItem('totalIncome'),
-        //     totalExpense:localStorage.getItem('totalExpense')
-        // });
+        let transactions = JSON.parse(localStorage.getItem('transactions'));
+        let balance = localStorage.getItem('balance');
+        let totalIncome = localStorage.getItem('totalIncome');
+        let totalExpense = localStorage.getItem('totalExpense');
+        this.setState({
+            transactions: (transactions) ? transactions : []  ,
+            balance: (balance) ? balance : 0,
+            totalIncome: (totalIncome) ? totalIncome : 0,
+            totalExpense: (totalExpense) ? totalExpense : 0
+        });
     }
 
     addIncome = ()=>{
@@ -157,7 +161,7 @@ class expenseTracker extends Component {
         }
 
         return (
-            <div>
+            <div className='tablet'> 
                 <Modal size = 'mini' dimmer={dimmer} open={open} onClose={this.close}>
                 <Modal.Header>Save {(this.state.incomeOrExpense === 'income') ? 'Income' : 'Expense'}</Modal.Header>
                     <div className='content'>
@@ -192,9 +196,11 @@ class expenseTracker extends Component {
                 </Modal>
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 530 }}>
-                        <span>Balance</span><br/>
-                        <span><bold>{this.state.balance}RS</bold></span><br/>
-                        <span>Income</span><span>{this.state.totalIncome}RS</span><span>Expense</span><span>{this.state.totalExpense}</span>
+                        <div>
+                            <span>Balance</span><br/>
+                            <span><bold>{this.state.balance}RS</bold></span><br/>
+                            <span>Income</span><span>{this.state.totalIncome}RS</span><span>Expense</span><span>{this.state.totalExpense}</span>
+                        </div>
                         <Table basic='very'>
                             <Table.Body>
                                 {transactions}

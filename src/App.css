@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.tablet
+{
+    position: relative;
+    width: 547px;
+    height: 700px;
+    margin: auto;
+    border: 16px dimgrey solid;
+    border-top-width: 62px;
+    border-bottom-width: 63px;
+    border-radius: 9px;
+}
+
